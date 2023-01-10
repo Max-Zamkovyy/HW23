@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Loops</title>
+  </head>
+  <body>
+    <script>
+      // Homework 23
+
+      let dateBirthday = Number(prompt("Введіть дату Вашого народження"));
+      let age = 2022 - dateBirthday;
+
+      let city = prompt("В якому місці Ви народились?");
+      let sport = prompt("Який Ваш улюблений вид спорту?");
+
+      function partCity() {
+        if (!city) {
+          return(
+            `Шкода, що Ви не захотіли ввести місце Вашого проживання.`
+          );
+        } else if (city.toLowerCase() === "київ") {
+            return(`Ви живете в Україні!`);
+        } else if (city.toLowerCase() === "вашингтон") {
+            return(`Ви живете у Сполучених Штатах Америки.`);
+        } else if (city.toLowerCase() === "лондон") {
+            return(`Ви живете у Великій Британії.`);
+        } else {
+            return(`Ви живете в місті ${city[0].toUpperCase() + city.slice(1)}.`);
+        }
+      }
+
+      function partDateBirthday() {
+        if (!dateBirthday) {
+            return(`Шкода, що Ви не захотіли ввести рік Вашого народження.`);
+        } else if(age>0 || age===0){
+          if(age%10==1 && age!=11 && age%100!=11) {
+            return(`Вам ${age} рік!`);
+          } else if(age % 10>1 && age%10 <= 4 && age%100!=12 && age%100!=13 && age%100!=14 && age!=12 && age!=13 && age!=14 && age!=0) {
+            return(`Вам ${age} роки!`);
+          } else {
+            return(`Вам ${age} років!`);}
+        }
+      }
+
+      function partSport() {
+        if (!sport) {
+            return(`Шкода, що Ви не захотіли ввести Ваш улюблений вид спорту.`);
+        } else if (sport.toLowerCase() === "бокс") {
+            return(`Круто! Хочете стати Евандером Холіфілдом?`);
+        } else if (sport.toLowerCase() === "футбол") {
+            return(`Круто! Хочете стати Андрієм Шевченко?`);
+        } else if (sport.toLowerCase() === "хокей") {
+            return(`Круто! Хочете стати Уейном Грецкі?`);
+        } else{
+            return (`Ок, цікавий вид спорту!`);
+        }
+      }
+
+      alert (partDateBirthday() + '\n' + partCity() + '\n' + partSport());
+    </script>
+  </body>
+</html>
